@@ -10,3 +10,7 @@ export const colorInput = style({
   marginLeft: '-3px',
   marginTop: '-6px',
 })
+
+export const hide = style({
+  visibility: 'hidden',
+})
