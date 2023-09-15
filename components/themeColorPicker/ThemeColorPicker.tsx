@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import { updateColors } from '@/theme/themeUtils'
 
 function ThemeColorPicker() {
   const [primary, setPrimary] = useState("#690FAD");
@@ -8,7 +9,8 @@ function ThemeColorPicker() {
 
 
   useEffect(() => {
-    console.log('yes', primary, secondary)
+    updateColors(primary, secondary)
+    // console.log('yes', primary, secondary)
   }, [primary, secondary])
 
   return (
