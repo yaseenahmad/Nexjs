@@ -3,12 +3,6 @@ import { ColorPicker } from '@/components'
 
 
 export default function Home() {
-
-  const colors = {
-    primary: "#690FAD",
-    secondary: "#CAA8F5"
-  }
-
   return (
     <main>
       <h2>Colors</h2>
@@ -17,7 +11,7 @@ export default function Home() {
           <code className={codeContainer}>Primary dark</code>
         </div>
         <div className={`${colorContainer} ${predefinedColors.primaryDefault}`}>
-          <ColorPicker color={colors} type='primary' />
+          <ColorPicker type='primary' />
           <code className={codeContainer}>Primary default</code>
         </div>
         <div className={`${colorContainer} ${predefinedColors.primaryLight}`}>
@@ -35,7 +29,7 @@ export default function Home() {
           <code className={codeContainer}>secondary dark</code>
         </div>
         <div className={`${colorContainer} ${predefinedColors.secondaryDefault}`}>
-          <ColorPicker color={colors} type='secondary' />
+          <ColorPicker type='secondary' />
           <code className={codeContainer}>secondary default</code>
         </div>
         <div className={`${colorContainer} ${predefinedColors.secondaryLight}`}>

@@ -2,35 +2,31 @@
 
 import React, { useEffect, useState } from 'react';
 import { colorInput } from './ColorPicker.css';
-import { updateColors } from '@/theme/themeUtils'
-
-interface Colors {
-  primary: string;
-  secondary: string;
-}
+import { updateColors } from '@/theme/themeUtils';
 
 interface ColorPickerProps {
-  color: Colors;
   type: 'primary' | 'secondary';
 }
 
-export default function ColorPicker({color, type}: ColorPickerProps) {
-  const [primary, setPrimary] = useState(localStorage.getItem('primary') || color.primary);
-  const [secondary, setSecondary] = useState(localStorage.getItem('secondary') || color.secondary);
+export default function ColorPicker({ type }: ColorPickerProps) {
+  const defaultPrimary = "#690FAD";
+  const defaultSecondary = "#CAA8F5";
+
+  const defaultColor = localStorage.getItem(type) || (type === 'primary' ? defaultPrimary : defaultSecondary);
+  const [color, setColor] = useState(defaultColor);
 
   useEffect(() => {
-    localStorage.setItem('primary', primary)
-    localStorage.setItem('secondary', secondary)
-    updateColors(primary, secondary)
-  }, [primary, secondary])
+    localStorage.setItem(type, color);
+    updateColors(localStorage.getItem('primary') || defaultPrimary, localStorage.getItem('secondary') || defaultSecondary);
+  }, [type, color]);
 
   return (
-    <>
-      {
-        type === 'primary' ?
-          <input  type="color" className={colorInput} value={primary} onChange={e => setPrimary(e.target.value)} />
-        : <input  type="color" className={colorInput} value={secondary} onChange={e => setSecondary(e.target.value)} />
-      }
-    </>
-  )
+    <input 
+      type="color" 
+      className={colorInput} 
+      value={color} 
+      onChange={e => setColor(e.target.value)} 
+    />
+  );
 }
+
