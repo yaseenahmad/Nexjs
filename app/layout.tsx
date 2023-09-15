@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
+import { VerticalMenu, ThemeColorPicker } from './components'
+import { styles } from './layout.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const rubik = Rubik({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={rubik.className}>
+        <div className={styles.layout}>
+          <div className={styles.grid}>
+            <VerticalMenu />
+            <div className={styles.content}>
+              {children}
+              <ThemeColorPicker />
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
