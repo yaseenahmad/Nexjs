@@ -15,8 +15,8 @@ interface ColorPickerProps {
 }
 
 export default function ColorPicker({color, type}: ColorPickerProps) {
-  const [primary, setPrimary] = useState(color.primary);
-  const [secondary, setSecondary] = useState(color.secondary);
+  const [primary, setPrimary] = useState(localStorage.getItem('primary') || color.primary);
+  const [secondary, setSecondary] = useState(localStorage.getItem('secondary') || color.secondary);
 
   useEffect(() => {
     localStorage.setItem('primary', primary)

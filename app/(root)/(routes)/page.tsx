@@ -5,7 +5,7 @@ import { ColorPicker } from '@/components'
 export default function Home() {
 
   const colors = {
-    primary:  "#690FAD",
+    primary: "#690FAD",
     secondary: "#CAA8F5"
   }
 
