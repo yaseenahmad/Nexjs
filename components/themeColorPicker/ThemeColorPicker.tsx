@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { updateColors } from '@/theme/themeUtils'
 
 function ThemeColorPicker() {
-  const [primary, setPrimary] = useState("#690FAD");
-  const [secondary, setSecondary] = useState("#CAA8F5");
+  const [primary, setPrimary] = useState(localStorage.getItem('primary') || "#690FAD");
+  const [secondary, setSecondary] = useState(localStorage.getItem('secondary') || "#CAA8F5");
 
 
   useEffect(() => {
+    localStorage.setItem('primary', primary)
+    localStorage.setItem('secondary', secondary)
     updateColors(primary, secondary)
-    // console.log('yes', primary, secondary)
   }, [primary, secondary])
 
   return (
