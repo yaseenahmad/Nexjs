@@ -1,8 +1,8 @@
-import './globals.css'
+import '../globals.css'
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
-import { VerticalMenu, ThemeColorPicker } from './components'
-import { styles } from './layout.css'
+import { VerticalMenu } from '@/components'
+import { styles } from '../layout.css'
 
 const rubik = Rubik({ subsets: ['latin'] })
 
@@ -24,7 +24,6 @@ export default function RootLayout({
             <VerticalMenu />
             <div className={styles.content}>
               {children}
-              <ThemeColorPicker />
             </div>
           </div>
         </div>

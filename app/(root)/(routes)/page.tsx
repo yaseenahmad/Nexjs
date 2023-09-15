@@ -1,4 +1,6 @@
+import { ThemeColorPicker } from '@/components'
 import { container, colorContainer, codeContainer, predefinedColors } from './page.css'
+
 
 export default function Home() {
   return (
@@ -38,6 +40,8 @@ export default function Home() {
           <code className={codeContainer}>secondary bg</code>
         </div>
       </div>
+      <br />
+      <ThemeColorPicker />
     </main>
   )
 }
